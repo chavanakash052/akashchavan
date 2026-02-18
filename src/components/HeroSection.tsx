@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Download, ChevronDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const HeroSection = () => {
   return (
@@ -18,14 +19,14 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3, type: "spring" }}
-            className="mx-auto mb-6 h-28 w-28 rounded-full bg-hero-gradient flex items-center justify-center text-primary-foreground text-4xl font-display font-bold"
-          >
-            AC
-          </motion.div>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.3, type: "spring" }}
+              className="mx-auto mb-6 h-28 w-28 rounded-full overflow-hidden border-4 border-white/30 shadow-lg"
+            >
+              <img src={profilePhoto} alt="Akash Dinkar Chavan" className="h-full w-full object-cover" />
+            </motion.div>
 
           <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-4">
             Akash Dinkar Chavan
