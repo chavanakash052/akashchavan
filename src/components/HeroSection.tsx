@@ -23,7 +23,7 @@ const HeroSection = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: "spring" }}
-              className="mx-auto mb-6 h-28 w-28 rounded-full overflow-hidden border-4 border-white/30 shadow-lg"
+              className="mx-auto mb-6 h-36 w-36 rounded-full overflow-hidden border-4 border-white/30 shadow-lg"
             >
               <img src={profilePhoto} alt="Akash Dinkar Chavan" className="h-full w-full object-cover" />
             </motion.div>
