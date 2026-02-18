@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Download, ChevronDown } from "lucide-react";
+import { MapPin, Download, ChevronDown, Linkedin } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
@@ -52,6 +52,15 @@ const HeroSection = () => {
             >
               <Download className="h-4 w-4" />
               View Resume
+            </a>
+            <a
+              href="https://www.linkedin.com/in/akash-chavan-53a8541b9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/10 transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
             </a>
           </div>
         </motion.div>
