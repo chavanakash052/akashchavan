@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Target, Globe, Satellite } from "lucide-react";
+import { usePortfolio } from "@/hooks/usePortfolio";
 
 const AboutSection = () => {
+  const { data } = usePortfolio();
   return (
     <section id="about" className="py-24 bg-background grid-topo">
       <div className="container mx-auto px-6">
@@ -12,13 +14,8 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-gradient">
-            About Me
-          </h2>
-          <p className="text-muted-foreground leading-relaxed text-lg mb-10">
-            To obtain a position in a progressive organization where I can use my GIS, remote sensing,
-            and surveying skills to support spatial data management, mapping, and infrastructure planning.
-          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-gradient">About Me</h2>
+          <p className="text-muted-foreground leading-relaxed text-lg mb-10">{data.objective}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

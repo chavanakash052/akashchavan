@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
+import { usePortfolio } from "@/hooks/usePortfolio";
 
 const ContactSection = () => {
+  const { data } = usePortfolio();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:chavanakash052@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}`;
+    const mailtoLink = `mailto:${data.email}?subject=Portfolio Contact from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}`;
     window.open(mailtoLink);
   };
 
@@ -24,7 +26,6 @@ const ContactSection = () => {
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -38,9 +39,9 @@ const ContactSection = () => {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, label: "chavanakash052@gmail.com", href: "mailto:chavanakash052@gmail.com" },
-                { icon: Phone, label: "+91 9762667194", href: "tel:+919762667194" },
-                { icon: MapPin, label: "Karad, Maharashtra, India", href: "#" },
+                { icon: Mail, label: data.email, href: `mailto:${data.email}` },
+                { icon: Phone, label: data.phone, href: `tel:${data.phone.replace(/\s/g, "")}` },
+                { icon: MapPin, label: data.location, href: "#" },
               ].map((item) => (
                 <a
                   key={item.label}
@@ -55,7 +56,6 @@ const ContactSection = () => {
               ))}
             </div>
 
-            {/* Embedded map */}
             <div className="rounded-xl overflow-hidden shadow-card mt-6">
               <iframe
                 title="Location"
@@ -70,7 +70,6 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Contact form */}
           <motion.form
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
